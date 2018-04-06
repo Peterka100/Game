@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <title>Hello World</title>
+    <script>
+        function generateEmail(form) {
+            var dada;
+            dada = document.getElementById('email');
+            dada.innerHTML = form.getElementById('first').value + "." + form.getElementById('last').value;
+            //  form.reset();
+          //  form.element["first"].focus();
+        }
+    </script>
+
+</head>
+<body onload="displayWindowInfo()">
+<h3 id="message">
+To see the traditional first-program greeting, click below.
+</h3>
+    <input type="button" value="Click Me!" onclick="displayHello()">
+<br>  <br>
+
+<form>
+    First name:
+    <input type="text" id="first" size="25" autofocus placeholder="Enter your given name" onchange="this.form.elements['last'].disabled = false;"><br>
+    Last name:
+    <input type="text" id="last" size="25" placeholder="Enter your second name" disabled><br><br>
+    <input type="button" value="generate email" onclick="generateEmail(this.form)"><br><br>
+    <p id="email"></p>
+</form>
+
+<div>
+    <h2>Získaní informací z objektu Window</h2>
+    <p id="location-info"> </p>
+    <p id="browser-info"> </p>
+    <p id="screen-info"> </p>
+</div>
+
+
+<h3>Name name game club night</h3>
+<p>Join Park CM club for another wild and crazy night of cumputer fun. </p>
+<ul>
+    <li>Play computer games!</li>
+    <li>Talk about computers</li>
+    <li>Wind posters of your favorite computers</li>
+</ul>
+<p>confirm your reservation by clicking button below</p>
+<input type="button" value="Party reservations" onclick="PromtGame();">
+
+
+<div style="margin-top: 40px">
+    <h3> Táto stránka usporiada dva slová do správněho poradia ... </h3><br>
+    Pro usporiadanie kliknite tlacitko "&lt" <br>
+    <input id="prvniSlovo" type="text" placeholder="První slovo">&nbsp &nbsp
+    <input type="button" value="<" onclick="Porovnej(this.form);"> &nbsp &nbsp
+    <input id="druheSlovo" type="text" placeholder="Druhé slovo">
+</div>
+
+<div >
+    <input type="button" value="node.js test" onclick="showme()">
+    <p id="nodeJS"></p>
+</div>
+
+<script src="../js/Book_examples.js"></script>
+</body>
+</html>

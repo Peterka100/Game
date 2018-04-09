@@ -1,6 +1,21 @@
 console.log('starting app notes.js');
 
-module.exports.age = 25;
+var getAll = function () {
+    console.log('Getting all notes');
+}
+
+var addNote = function (title, body) {
+    console.log('Adding note',title, body)
+
+};
+
+module.exports = {
+    addNote: addNote,
+    getAll: getAll
+};
+
+
+/*
 module.exports.addnotes = function () {
     console.log('addnote');
     return 'New note';
@@ -9,3 +24,4 @@ module.exports.addnotes = function () {
 module.exports.add = function (a, b) {
    return  a + b;
 };
+*/

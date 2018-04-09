@@ -5,13 +5,17 @@ var getAll = function () {
 }
 
 var addNote = function (title, body) {
-    console.log('Adding note',title, body)
+    console.log('Adding note',title, body);
+};
 
+var getNote = function(title){
+    console.log('Getting note: ', title)
 };
 
 module.exports = {
     addNote: addNote,
-    getAll: getAll
+    getAll: getAll,
+    getNote: getNote
 };
 
 

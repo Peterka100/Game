@@ -9,13 +9,18 @@ var addNote = function (title, body) {
 };
 
 var getNote = function(title){
-    console.log('Getting note: ', title)
+    console.log('Getting note: ', title);
 };
+
+var removeNote = function(title){
+    console.log('Removing note: ', title);
+}
 
 module.exports = {
     addNote: addNote,
     getAll: getAll,
-    getNote: getNote
+    getNote: getNote,
+    removeNote: removeNote
 };
 
 

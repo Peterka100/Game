@@ -13,8 +13,12 @@ var addNote = function (title, body) {
         body
     };
 
+    var noteString = fs.readFileSync('notes-data.json');
+    notes = JSON.parse(noteString);
+
     notes.push(note);
     fs.writeFileSync('notes-data.json', JSON.stringify(notes));
+
 };
 
 var getNote = function(title){

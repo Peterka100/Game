@@ -20,9 +20,14 @@ var addNote = function (title, body) {
 
     }
 
-    notes.push(note);
-    fs.writeFileSync('notes-data.json', JSON.stringify(notes));
+    var duplicateNote = notes.filter(function (note) {
+        return note.title === title;
+    }) ;
 
+    if (duplicateNote.length === 0) {
+        notes.push(note);
+        fs.writeFileSync('notes-data.json', JSON.stringify(notes));
+    }
 };
 
 var getNote = function(title){

@@ -6,7 +6,7 @@ var getAll = function () {
 };
 
 var addNote = function (title, body) {
-    console.log('Adding note: ',title, body);
+    // console.log('Adding note: ',title, body);
     var notes = fetchNotes();
     var note = {
         title,
@@ -31,6 +31,7 @@ var addNote = function (title, body) {
         if (duplicateNote.length === 0) {
             notes.push(note);
             saveNotes(notes);
+            return note;
         }
 
 

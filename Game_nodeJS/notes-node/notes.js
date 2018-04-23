@@ -15,16 +15,7 @@ var addNote = function (title, body) {
         title,
         body
     };
-
-
-    /*
-    try {
-        var noteString = fs.readFileSync('notes-data.json');
-        notes = JSON.parse(noteString);
-    } catch (e) {
-
-    }
-    */
+    
 
         var duplicateNote = notes.filter(function (note) {
             return note.title === title;
@@ -40,10 +31,19 @@ var addNote = function (title, body) {
 
 };
 
-var getNote = function(title){
-    console.log('Getting note: ', title);
-};
 
+// READING NOTE
+//------------------------------------------------------------------------
+
+var getNote = function(title){
+  //  console.log('Getting note: ', title);
+    var notes = fetchNotes();
+    var filteredNotes = notes.filter(function (note) {
+        return note.title === title;
+    });
+  ;
+    return filteredNotes[0];
+};
 
 // REMOVE NOTE
 //------------------------------------------------------------------------
@@ -53,10 +53,14 @@ var removeNote = function(title){
     var filteredNotes = notes.filter(function (note) {
        return note.title != title;
     });
-
-
     saveNotes(filteredNotes);
+
+    return notes.length !== filteredNotes.length;
 };
+
+
+// FUNKCE PRO NAHRADI a ULOZENI DAT DO SOUBORU
+//------------------------------------------------------------------------
 
 var fetchNotes = function () {
     try {

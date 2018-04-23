@@ -15,7 +15,7 @@ var addNote = function (title, body) {
         title,
         body
     };
-    
+
 
         var duplicateNote = notes.filter(function (note) {
             return note.title === title;
@@ -75,13 +75,18 @@ var saveNotes = function (notes) {
         fs.writeFileSync('notes-data.json', JSON.stringify(notes));
 };
 
-
+var logNote = function (note) {
+    console.log('--');
+    console.log(`Title: ${note.title}`);
+    console.log(`Body: ${note.body}`);
+};
 
 module.exports = {
     addNote: addNote,
-    getAll: getAll,
-    getNote: getNote,
-    removeNote: removeNote,
+    getAll,
+    getNote,
+    removeNote,
+    logNote
 };
 
 

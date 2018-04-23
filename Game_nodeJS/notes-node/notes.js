@@ -5,6 +5,9 @@ var getAll = function () {
     console.log('Getting all notes');
 };
 
+
+// ADD NOTE
+//------------------------------------------------------------------------
 var addNote = function (title, body) {
     // console.log('Adding note: ',title, body);
     var notes = fetchNotes();
@@ -41,8 +44,18 @@ var getNote = function(title){
     console.log('Getting note: ', title);
 };
 
+
+// REMOVE NOTE
+//------------------------------------------------------------------------
 var removeNote = function(title){
-    console.log('Removing note: ', title);
+   // console.log('Removing note: ', title);
+    var notes = fetchNotes();
+    var filteredNotes = notes.filter(function (note) {
+       return note.title != title;
+    });
+
+
+    saveNotes(filteredNotes);
 };
 
 var fetchNotes = function () {

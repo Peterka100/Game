@@ -1,8 +1,11 @@
-console.log('starting app notes.js');
+// console.log('starting app notes.js');
 const fs = require('fs');
+
+
 
 var getAll = function () {
     console.log('Getting all notes');
+    return fetchNotes();
 };
 
 
@@ -76,6 +79,7 @@ var saveNotes = function (notes) {
 };
 
 var logNote = function (note) {
+    debugger;
     console.log('--');
     console.log(`Title: ${note.title}`);
     console.log(`Body: ${note.body}`);

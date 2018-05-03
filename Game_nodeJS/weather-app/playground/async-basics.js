@@ -7,6 +7,21 @@ setTimeout(function () {
 
 setTimeout(function () {
     console.log('Second setTimeout');
-},0);
+},3000);
 
 console.log('Finishing up');
+
+
+/*
+
+var add = (a, b) => {
+    var total = a + b;
+
+    return total;
+};
+
+var res = add(3, 8);
+
+console.log(res);
+
+*/

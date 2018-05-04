@@ -7,7 +7,7 @@ setTimeout(function () {
 
 setTimeout(function () {
     console.log('Second setTimeout');
-},3000);
+},0);
 
 console.log('Finishing up');
 

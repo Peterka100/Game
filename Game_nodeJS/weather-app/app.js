@@ -9,6 +9,6 @@ request({
     function (error, response, body) {
         console.log('body: ', JSON.stringify(body, undefined, 2));
         console.log('error: ', error);
-        console.log('response: ', response);
+        console.log('response: ', JSON.stringify(response, undefined, 2));
 });
 

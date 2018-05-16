@@ -10,5 +10,8 @@ request({
         console.log('body: ', JSON.stringify(body, undefined, 2));
         console.log('error: ', error);
         console.log('response: ', JSON.stringify(response, undefined, 2));
+        console.log(`Address: ${body.results[0].formatted_address}`);
+        console.log(`Latitude: ${body.results[0].geometry.location.lat}`);
+        console.log(`Longitude: ${body.results[0].geometry.location.lng}`);
 });
 

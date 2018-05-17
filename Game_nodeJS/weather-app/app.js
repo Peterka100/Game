@@ -1,6 +1,6 @@
-
-const request = require('request');
 const yargs = require('yargs');
+
+const geocode = require('./geocode/geocode');
 
 const argv = yargs
     .options({
@@ -15,10 +15,13 @@ const argv = yargs
     .alias('help', 'h')
     .argv;
 
-var  encodedAddress = encodeURIComponent(argv.address);
-console.log(argv);
-// console.log(encodedAddress);
+geocode.geocodeAddress(argv.address);
 
+
+
+// console.log(argv);
+// console.log(encodedAddress);
+/*
 request({
     url: 'https://maps.googleapis.com/maps/api/geocode/json?address=1301%20lombard%20street%20philadelphia',
         //  url: 'http://www-csas.csint.cz/webapi/v1/info/branches?web-api-key=dd3c4d08-6c39-411a-a37d-0fbea365fc1e',
@@ -41,3 +44,4 @@ request({
  //         console.log(`Latitude: ${body.results[0].geometry.location.lat}`);
  //         console.log(`Longitude: ${body.results[0].geometry.location.lng}`);
 });
+*/

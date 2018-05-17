@@ -25,6 +25,11 @@ request({
         json: true
 },
     function (error, response, body) {
+        if(error){
+           console.log("Unable to connect to Google servers.");
+        } else if (body.status === 'ZERO_RESULTS') {
+           console.log("Unable to find that address.");
+        }
  //       console.log('body: ', JSON.stringify(body, undefined, 2));
  //       console.log('error: ', error);
  //       console.log('response: ', JSON.stringify(response, undefined, 2));

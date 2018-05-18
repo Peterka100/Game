@@ -1,3 +1,6 @@
+// GEOCODE API
+
+/*
 const yargs = require('yargs');
 
 const geocode = require('./geocode/geocode');
@@ -22,6 +25,16 @@ geocode.geocodeAddress(argv.address, function(errorMessage, results){
         console.log(JSON.stringify(results,undefined,2));
     }
     });
+
+*/
+
+const request = require('request');
+request({
+    url: 'https://api.darksky.net/forecast/d952ca7f505fbf828c35bb1196ede40f/39.9396284,-75.18663959999999',
+    json: true
+},function (error, response, body) {
+    console.log(body.currently.temperature);
+});
 
 
 

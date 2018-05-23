@@ -7,9 +7,9 @@ var getWeather = function (lat, lng, callback) {
     },function (error, response, body) {
         if(error){
             callback("Unable to connect to Forecast.io server.");
-        }else if (response.status.code === 400) {
+        }else if (response.statusCode === 400) {
             callback('Unable to fetch weather.');
-        }else if (response.status.code === 200) {
+        }else if (response.statusCode === 200) {
             callback(undefined, {
                 temperature: body.currently.temperature,
                 apparentTemperature: body.currently.apparentTemperature

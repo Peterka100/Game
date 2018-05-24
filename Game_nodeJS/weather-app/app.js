@@ -58,12 +58,13 @@ const argv = yargs
     .alias('help', 'h')
     .argv;
 
+
 geocode.geocodeAddress(argv.address, function(errorMessage, results) {
     if (errorMessage) {
         console.log(errorMessage);
     } else {
         console.log(results.address);
-weather.getWeather(results.latitude, results.longitude, function(errorMessage, weatherResults){
+        weather.getWeather(results.latitude, results.longitude, function(errorMessage, weatherResults){
     if (errorMessage) {
         console.log(errorMessage);
     } else {

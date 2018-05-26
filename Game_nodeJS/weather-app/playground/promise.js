@@ -1,6 +1,7 @@
 var somePromise = new Promise(function (resolve, reject) {
     setTimeout(function () {
-        //resolve ("Hey, It works");
+        resolve ("Hey, It works");
+        resolve();
         reject("Unable to fullfil promise")
     },2500)
 });
@@ -10,3 +11,4 @@ somePromise.then(function (message) {
 },function (errorMessage) {
     console.log(errorMessage);
     });
+

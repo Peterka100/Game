@@ -1,3 +1,4 @@
+/*
 var somePromise = new Promise(function (resolve, reject) {
     setTimeout(function () {
         resolve ("Hey, It works");
@@ -11,6 +12,7 @@ somePromise.then(function (message) {
 },function (errorMessage) {
     console.log(errorMessage);
     });
+*/
 
 var asyncAdd = function (a,b) {
     return new Promise(function (resolve, reject) {
@@ -23,3 +25,12 @@ var asyncAdd = function (a,b) {
        },1500)
     });
 };
+
+asyncAdd(5, '7').then(function(res) {
+    console.log('Result:', res);
+return asyncAdd(res, 33);
+}).then(function(res) {
+    console.log('Should be 45', res);
+}).catch(function(errorMessage) {
+    console.log(errorMessage);
+});

@@ -12,3 +12,14 @@ somePromise.then(function (message) {
     console.log(errorMessage);
     });
 
+var asyncAdd = function (a,b) {
+    return new Promise(function (resolve, reject) {
+       setTimeout(function () {
+           if (typeof a === 'number' && typeof b === 'number'){
+               resolve(a + b)
+           } else {
+               reject('Arguments must be numbers');
+           };
+       },1500)
+    });
+};

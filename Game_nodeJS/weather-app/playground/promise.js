@@ -26,7 +26,7 @@ var asyncAdd = function (a,b) {
     });
 };
 
-asyncAdd(5, '7').then(function(res) {
+asyncAdd(5, 7).then(function(res) {
     console.log('Result:', res);
 return asyncAdd(res, 33);
 }).then(function(res) {

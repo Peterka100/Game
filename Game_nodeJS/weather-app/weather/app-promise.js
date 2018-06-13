@@ -25,7 +25,11 @@ axios.get(geocodeURL).then(function(response) {
     var lng = response.data.results[0].geometry.location.lng;
     var weatherUrl = `https://api.forecast.io/forecast/4a04d1c42fd9d32c97a2c291a32d5e2d/${lat},${lng}`;
     console.log(response.data.results[0].formatted_address);
-    console.log(response.data);
+    return axios.get(weatherUrl);
+}).then(function (response) {
+    var temperature = response.data.currently.temperature;
+    var apparentTemperature = response.data.currently.apparentTemperature;
+    console.log(`It's currently ${temperature}. It feels like ${apparentTemperature}.`);
 }).catch (function(e) {
     if (e.code === 'ENOTFOUND'){
         console.log('Unable to connect to API servers.');

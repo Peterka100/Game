@@ -21,8 +21,9 @@ var geocodeAddress = function(address) {
         url: `https://maps.googleapis.com/maps/api/geocode/json?address=${encodedAddress}`,
         json: true
     }, function(error, response, body) {
+        //console.log(error, response, body);
         if (error) {
-            reject('Unable to connect to Google servers.');
+            reject('Unable to connect to Google servers.' + error + response);
         } else if (body.status === 'ZERO_RESULTS') {
         reject('Unable to find that address.');
     } else if (body.status === 'OK') {

@@ -3,6 +3,9 @@ const hbs = require('hbs');
 
 var app = express();
 
+//Priprava partials - tj. footer pro vsechny stranky, nebo header
+hbs.registerPartials(__dirname + '/views/partials');
+
 // Mělo by to nasetovat cestu k adresaru, kde máme HTML stránky
 app.set('view engine', 'hbs');
 
@@ -14,7 +17,7 @@ app.use(express.static(__dirname + '/public'));
 //Nastavovaní jednotlivých route
 app.get('/', function (req,res) {
     res.render('home.hbs',{
-        pageTitle: 'About Page',
+        pageTitle: 'Home Page',
         welcomeMessage: 'Welcome to my Website',
         currentYear: new Date().getFullYear()
     })

@@ -13,14 +13,20 @@ app.use(express.static(__dirname + '/public'));
 
 //Nastavovaní jednotlivých route
 app.get('/', function (req,res) {
+    res.render('home.hbs',{
+        pageTitle: 'About Page',
+        welcomeMessage: 'Welcome to my Website',
+        currentYear: new Date().getFullYear()
+    })
 //  res.send('<h1>Hello Express!</h1>');
-    res.send({
-        name: 'Andrew',
-        likes: [
-            'Biking',
-            'Cities'
-        ]
-    });
+//    res.send({
+//        name: 'Andrew',
+//        likes: [
+//            'Biking',
+//            'Cities'
+//        ]
+//    });
+
 });
 
 

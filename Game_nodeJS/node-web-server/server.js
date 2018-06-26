@@ -16,7 +16,7 @@ app.use(function (req, res, next) {
     var now = new Date().toString();
     var log = `${now}: ${req.method}  ${req.url}`;
     console.log(log);
-
+    //uložení do souboru
     fs.appendFile ('server.log', log + '\n', function (err) {
        if(err){
            console.log('Unable to append to server.log')
@@ -24,6 +24,10 @@ app.use(function (req, res, next) {
     });
 
     next();
+});
+
+app.use(function(req, res, next){
+   res.render('maintenance.hps');
 });
 
 //registrace helpru

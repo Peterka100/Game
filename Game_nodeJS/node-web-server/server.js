@@ -1,5 +1,6 @@
 const express = require('express');
 const hbs = require('hbs');
+const fs = require('fs');
 
 var app = express();
 
@@ -11,15 +12,34 @@ app.set('view engine', 'hbs');
 
 //Príprava templete
 app.use(express.static(__dirname + '/public'));
+app.use(function (req, res, next) {
+    var now = new Date().toString();
+    var log = `${now}: ${req.method}  ${req.url}`;
+    console.log(log);
 
+    fs.appendFile ('server.log', log + '\n', function (err) {
+       if(err){
+           console.log('Unable to append to server.log')
+       }
+    });
 
+    next();
+});
+
+//registrace helpru
+hbs.registerHelper('currentYear', function () {
+    return new Date().getFullYear()
+});
+
+hbs.registerHelper('screamIt', function (text) {
+   return text.toUpperCase();
+});
 
 //Nastavovaní jednotlivých route
 app.get('/', function (req,res) {
     res.render('home.hbs',{
         pageTitle: 'Home Page',
-        welcomeMessage: 'Welcome to my Website',
-        currentYear: new Date().getFullYear()
+        welcomeMessage: 'Welcome to my Website'
     })
 //  res.send('<h1>Hello Express!</h1>');
 //    res.send({
@@ -35,8 +55,7 @@ app.get('/', function (req,res) {
 
 app.get('/about', function (req,res) {
    res.render('about.hbs', {
-       pageTitle: 'About Page',
-       currentYear: new Date().getFullYear()
+       pageTitle: 'About Page'
    });
 });
 
